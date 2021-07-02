@@ -1,0 +1,16 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "C:/programs/UnrealEngine",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "UnrealLocator",
+			"Type": "Runtime",
+			"LoadingPhase": "Default"
+		}
+	],
+	"TargetPlatforms": [
+		"WindowsNoEditor"
+	]
+}
