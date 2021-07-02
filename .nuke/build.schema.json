@@ -1,0 +1,166 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Build Schema",
+  "$ref": "#/definitions/build",
+  "definitions": {
+    "build": {
+      "type": "object",
+      "properties": {
+        "Config": {
+          "type": "string",
+          "description": "The target configuration for building or packaging the project",
+          "enum": [
+            "Debug",
+            "DebugGame",
+            "Development",
+            "Shipping"
+          ]
+        },
+        "Continue": {
+          "type": "boolean",
+          "description": "Indicates to continue a previously failed build attempt"
+        },
+        "CustomEnginePath": {
+          "type": "string",
+          "description": "Specify a path to a custom engine version (eg.: built from source)"
+        },
+        "Help": {
+          "type": "boolean",
+          "description": "Shows the help text for this build assembly"
+        },
+        "Host": {
+          "type": "string",
+          "description": "Host for execution. Default is 'automatic'",
+          "enum": [
+            "AppVeyor",
+            "AzurePipelines",
+            "Bamboo",
+            "Bitrise",
+            "GitHubActions",
+            "GitLab",
+            "Jenkins",
+            "SpaceAutomation",
+            "TeamCity",
+            "Terminal",
+            "TravisCI"
+          ]
+        },
+        "Name": {
+          "type": "string",
+          "description": "Name parameter for boilerplate generators"
+        },
+        "NoLogo": {
+          "type": "boolean",
+          "description": "Disables displaying the NUKE logo"
+        },
+        "OutPath": {
+          "type": "string",
+          "description": "Specify the output working directory for artifacts"
+        },
+        "Plan": {
+          "type": "boolean",
+          "description": "Shows the execution plan (HTML)"
+        },
+        "Profile": {
+          "type": "array",
+          "description": "Defines the profiles to load",
+          "items": {
+            "type": "string"
+          }
+        },
+        "Program": {
+          "type": "string",
+          "description": "The target program to execute operations on",
+          "enum": [
+            "UnrealLocator"
+          ]
+        },
+        "Root": {
+          "type": "string",
+          "description": "Root directory during build execution"
+        },
+        "RunIn": {
+          "type": "string",
+          "description": "The target execution mode for building the project (Standalone or Editor",
+          "enum": [
+            "Editor",
+            "Standalone",
+            "StandaloneWithEditor"
+          ]
+        },
+        "Skip": {
+          "type": "array",
+          "description": "List of targets to be skipped. Empty list skips all dependencies",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Build",
+              "BuildEditor",
+              "Clean",
+              "CleanDeployment",
+              "CleanPlugins",
+              "CleanProject",
+              "Cook",
+              "Generate",
+              "NewActor",
+              "NewInterface",
+              "NewModule",
+              "NewObject",
+              "NewPlugin",
+              "NewStruct"
+            ]
+          }
+        },
+        "Solution": {
+          "type": "string",
+          "description": "Path to a solution file that is automatically loaded"
+        },
+        "Target": {
+          "type": "array",
+          "description": "List of targets to be invoked. Default is '{default_target}'",
+          "items": {
+            "type": "string",
+            "enum": [
+              "Build",
+              "BuildEditor",
+              "Clean",
+              "CleanDeployment",
+              "CleanPlugins",
+              "CleanProject",
+              "Cook",
+              "Generate",
+              "NewActor",
+              "NewInterface",
+              "NewModule",
+              "NewObject",
+              "NewPlugin",
+              "NewStruct"
+            ]
+          }
+        },
+        "TargetPlatform": {
+          "type": "string",
+          "description": "Set platform for running targets"
+        },
+        "TemplatesPath": {
+          "type": "string",
+          "description": "Specify a folder containing generator specific folders for Scriban scaffolding and templates"
+        },
+        "UnrealVersion": {
+          "type": "string",
+          "description": "Specify the target Unreal Engine version. By default only used by the Checkout target. Everything else should infer engine version from the project file"
+        },
+        "Verbosity": {
+          "type": "string",
+          "description": "Logging verbosity during build execution. Default is 'Normal'",
+          "enum": [
+            "Minimal",
+            "Normal",
+            "Quiet",
+            "Verbose"
+          ]
+        }
+      }
+    }
+  }
+}
